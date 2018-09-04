@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  // eslint-disable-next-line class-methods-use-this
   render() {
     return (
       <div className="App">
