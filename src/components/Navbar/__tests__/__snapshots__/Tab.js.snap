@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tab/> should render active state 1`] = `
+<button
+  class="tab tab--active"
+>
+  Hello selected world
+</button>
+`;
+
+exports[`<Tab/> should render default state 1`] = `
+<button
+  class="tab "
+>
+  Hello world
+</button>
+`;

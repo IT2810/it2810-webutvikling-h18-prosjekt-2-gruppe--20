@@ -1,17 +1,29 @@
+/**
+ * Defines the outer edges of the application.
+ * Uses a flexbox trick to ensure a sticky footer.
+ * Read more about sticky footer here: https://css-tricks.com/couple-takes-sticky-footer/
+ */
 .App {
-  text-align: center;
+  align-items: stretch;
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  min-height: 100vh;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
+.App > header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  box-sizing: border-box;
+
   color: white;
+
+  padding: 1em;
+  position: relative;
+
+  text-align: center;
 }
 
 .App-title {
@@ -20,6 +32,18 @@
 
 .App-intro {
   font-size: large;
+}
+
+main {
+  flex: 1;
+}
+
+.App > footer {
+  background-color: #999999;
+
+  margin-top: auto;
+
+  text-align: center;
 }
 
 @keyframes App-logo-spin {

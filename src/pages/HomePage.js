@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
+import NavBar from '../components/Navbar';
 
 export default class HomePage extends Component {
-  constructor() {
-    super();
-    this.state = {
-      test: 'hello world',
-      categories: [],
-    };
-  }
+  tabs = [
+    {
+      id: 'komedie',
+      label: 'Komedie',
+    },
+    {
+      id: 'drama',
+      label: 'Drama',
+    },
+  ];
+
+  state = {
+    selectedTab: null,
+    categories: [],
+  };
+
+  changeTab = (newTab) => {
+    this.setState({ selectedTab: newTab });
+  };
 
   render() {
     return <main>
-      <h2>Stats</h2>
-      {this.state.test}
+      <header>
+        <NavBar tabs={this.tabs} selected={this.state.selectedTab} onSelect={this.changeTab}/>
+      </header>
     </main>;
   }
 }
