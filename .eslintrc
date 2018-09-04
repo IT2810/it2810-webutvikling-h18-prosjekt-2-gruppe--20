@@ -11,7 +11,8 @@
     "react/jsx-uses-vars": [2],
     "import/extensions": [0],
     "import/no-unresolved": "off",
-    "no-console": ["error", { "allow": ["warn", "error", "debug"] }]
+    "no-console": ["error", { "allow": ["warn", "error", "info"] }],
+    "react/react-in-jsx-scope": [0]
   },
   "extends": [
     "airbnb-base",
