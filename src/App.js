@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 
 import './App.css';
@@ -12,11 +11,7 @@ class App extends Component {
       <header>
         <h1 className="App-title">Tittel</h1>
       </header>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" component={HomePage}/>
-        </Switch>
-      </BrowserRouter>
+      <HomePage/>
       <footer>
         <p>2018 © le-art</p>
       </footer>
