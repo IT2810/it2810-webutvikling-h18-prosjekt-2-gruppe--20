@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TextPresenter = ({ jsonString = null, ...props }) => {
-  if (!jsonString) {
+const TextPresenter = ({ text = null, ...props }) => {
+  if (!text) {
     return null;
   }
 
-  const poem = JSON.parse(jsonString);
-
-  return <div {...props}>{poem.text}</div>;
+  return <div {...props}>{text.text}</div>;
 };
 TextPresenter.propTypes = {
-  jsonString: PropTypes.string,
+  text: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+  }),
 };
 
 export default TextPresenter;

@@ -23,7 +23,7 @@ export function getFileNames(tab, cat) {
   const fileNames = {
     img: `img${number}.svg`,
     aud: `aud${number}.mp3`,
-    txt: `txt${number}.json`,
+    txt: number - 1,
   };
   return fileNames;
 }

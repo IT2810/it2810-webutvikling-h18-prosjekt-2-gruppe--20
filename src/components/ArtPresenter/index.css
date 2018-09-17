@@ -12,17 +12,23 @@
 
   justify-content: space-around;
 
-  margin: auto;
+  margin: 1em auto;
   max-width: 50em;
 
   width: 100%;
 }
 
 .artpresenter__image {
+  flex-basis: 20em;
   flex-shrink: 0;
+
   margin: auto;
 
+  height: auto;
+
   max-width: 40em;
+
+  width: 100%;
 }
 
 .artpresenter__text {
