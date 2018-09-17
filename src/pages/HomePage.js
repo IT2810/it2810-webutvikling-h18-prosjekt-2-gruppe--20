@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import NavBar from '../components/Navbar';
 import ArtPresenter from '../components/ArtPresenter';
 
+import { getFileNames } from '../utils/mediaMatcher';
+import fetchImageByCache from '../utils/api/imageApi';
+import fetchTextByCache from '../utils/api/textApi';
+
 export default class HomePage extends Component {
   tabs = [
     {
@@ -18,12 +22,16 @@ export default class HomePage extends Component {
     selectedTab: null,
     categories: [],
     currentImage: null,
+    currentText: null,
   };
 
   componentDidMount() {
-    fetch('/Abraham_Lincoln_clip_art.svg')
-      .then(res => res.text())
-      .then(data => this.setState({ currentImage: data }));
+    const { img } = getFileNames(0, 2);
+
+    Promise.all([
+      fetchTextByCache(0),
+      fetchImageByCache(img),
+    ]).then(([currentText, currentImage]) => this.setState({ currentImage, currentText }));
   }
 
   changeTab = (newTab) => {
@@ -35,7 +43,7 @@ export default class HomePage extends Component {
       <header>
         <NavBar tabs={this.tabs} selected={this.state.selectedTab} onSelect={this.changeTab}/>
       </header>
-      <ArtPresenter xmlString={this.state.currentImage}/>
+      <ArtPresenter xmlString={this.state.currentImage} text={this.state.currentText}/>
     </main>;
   }
 }

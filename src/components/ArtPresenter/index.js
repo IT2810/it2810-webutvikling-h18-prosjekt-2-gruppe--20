@@ -9,7 +9,9 @@ import './index.css';
 export default class ArtPresenter extends Component {
   static propTypes = {
     xmlString: PropTypes.string,
-    text: PropTypes.string,
+    text: PropTypes.shape({
+      text: PropTypes.string.isRequired,
+    }),
   };
 
   static defaultProps = {
@@ -20,7 +22,7 @@ export default class ArtPresenter extends Component {
   render() {
     return <div className="artpresenter">
       <XmlPresenter className="artpresenter__image" xmlString={this.props.xmlString}/>
-      <TextPresenter jsonString={JSON.stringify({ text: 'Hello world' })} className="artpresenter__text"/>
+      <TextPresenter text={this.props.text} className="artpresenter__text"/>
     </div>;
   }
 }
