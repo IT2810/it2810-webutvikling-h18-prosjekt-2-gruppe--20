@@ -21,7 +21,9 @@ export default async function fetchImageByCache(filename) {
 
   const svg = await fetchImage(filename);
 
-  flushToCache(key, svg);
+  if (svg) {
+    flushToCache(key, svg);
+  }
 
   return svg;
 }
