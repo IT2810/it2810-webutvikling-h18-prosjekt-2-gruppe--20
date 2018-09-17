@@ -6,9 +6,9 @@ const categoryCount = 3;
  * @return {number} returns the file number matching chosen  tab and category
  * */
 export function chosenAlternativesToNumber(tab, cat) {
-  if (!Number.isInteger(tab) || tab < 0 || tab > tabCount) {
+  if (!Number.isInteger(tab) || tab < 0 || tab >= tabCount) {
     throw new Error('Illegal Argument - Tab must be a numeric between 0 and numOfTabs');
-  } else if (!Number.isInteger(cat) || cat < 0 || cat > categoryCount) {
+  } else if (!Number.isInteger(cat) || cat < 0 || cat >= categoryCount) {
     throw new Error('Illegal Argument - Cat must be a numeric between 0 and numOfCat');
   }
   return (cat - 1) * tabCount + tab;
