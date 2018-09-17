@@ -5,6 +5,7 @@ import ArtPresenter from '../components/ArtPresenter';
 import { getFileNames } from '../utils/mediaMatcher';
 import fetchImageByCache from '../utils/api/imageApi';
 import fetchTextByCache from '../utils/api/textApi';
+import getAudioUrl from '../utils/api/audioApi';
 
 export default class HomePage extends Component {
   tabs = [
@@ -26,12 +27,18 @@ export default class HomePage extends Component {
   };
 
   componentDidMount() {
-    const { img } = getFileNames(0, 2);
+    const { img, txt, aud } = getFileNames(0, 2);
+
+    const currentAudio = getAudioUrl(aud);
 
     Promise.all([
-      fetchTextByCache(0),
+      fetchTextByCache(txt),
       fetchImageByCache(img),
-    ]).then(([currentText, currentImage]) => this.setState({ currentImage, currentText }));
+    ]).then(([currentText, currentImage]) => this.setState({
+      currentImage,
+      currentText,
+      currentAudio,
+    }));
   }
 
   changeTab = (newTab) => {
