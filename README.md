@@ -1,6 +1,50 @@
-# README
+Prosjekt 2 - Kunstgenerator
+===
 
-## Img links
+## Komponentstruktur
+
+Kildekoden til prosjektet er strukturert slik at rotmappene definerer _"kategorien"_ til en JSX- eller ES6-modul. Dvs. en fil kan være en av følgende kategorier
+
+- **Component** - Vanlige React komponenter, med eller uten tilstand
+- **Page** - React komponenter som er brukt av react router. Inneholder vanligvis logikk og tilstand for en side, og snakker til ruteren.
+- **Utility** - Moduler eller funksjoner som skal støtte opp Pages eller Components med funksjonalitet. Dette kan være moduler for api kall, osv.
+- **Rotmoduler** - Filer og komponenter som er definert i roten. Typisk filer som setter opp react på nettsiden og diverse rotkomponenter.
+
+I dette prosjektet nyttes ikke React router, men det var uansett fordelsaktig å dytte all logikk inn i en Page komponent. Slik kunne Komponenten App kun fokusere på struktur av nettsiden, sette inn header og footer, og tilstand ble delegert til `HomePage`.
+
+### Intern struktur
+Inni rotmappene struktureres innhold etter type (eller domene). Dvs. at en komponent som NavBar har en mappe kalt `NavBar` og alt som hører til NavBar lagres inni denne. Selve NavBar koden legges i filen `NavBar/index.js`.
+
+Består komponenten av kun en fil, trenger vi ikke å lage undermapper. Da lager vi kun en fil med navnet `NavBar.js`
+
+All komponenter bruker `PascalCase` konvensjonen for navngiving (med unntak av `index.js`), som er vanlig konvensjon i React. Alle andre moduler bruker vanlig `camelCasing`.
+
+### Importering av CSS
+
+CSS lastes direkte inn i en komponent, ved å bruke ES6 sin `import '<cssfile.css>';` syntaks. 
+
+> Merk at dette derimot ikke er funksjonalitet som hører til ES6. Dette håndteres av Webpack når koden bygges.
+
+```
+src/
+| components/
+  | NavBar
+    | index.css
+    | index.js
+| pages/
+  | HomePage.js
+| utils/
+```
+
+### Tilstand i komponenter
+
+For å holde koden enklest mulig, forsøker vi å minimere antall komponenter som trenger å ha egen tilstand (en: state) til kun de som absolutt trenger det. Dette sparer oss fra å måtte jobbe med komponent-livssykluser til kun de som absolutt trenger det. I tillegg får vi veldefinerte- og tilstandsløsekomponenter, hvor vi tydelig ser hva input, output og ansvar (single responsebility principle) er.
+
+I dette prosjektet er det strengt talt kun komponenten `pages/HomePage.js` som trenger tilstand. Da denne har kontroll på hvilke faner og kategorier som er valgt, samt hva data som blir presentert.
+
+## Referanser
+
+### Img links
 
 * Elephants
     * https://pixabay.com/no/elefant-pattedyr-dyr-dyreliv-37572/
@@ -19,7 +63,7 @@
     * https://pixabay.com/no/classic-gitar-h%C3%B8re-instrument-2026112/
     * https://pixabay.com/no/elektrisk-gitar-ax-%C3%B8ks-gitar-161740/
 
-## Audio links
+### Audio links
 
 * Tanks
     * https://freesound.org/people/qubodup/sounds/169743/
