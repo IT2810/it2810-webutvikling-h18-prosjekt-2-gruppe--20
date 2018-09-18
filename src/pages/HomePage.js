@@ -24,6 +24,7 @@ export default class HomePage extends Component {
     categories: [],
     currentImage: null,
     currentText: null,
+    currentAudio: null,
   };
 
   componentDidMount() {
@@ -50,7 +51,9 @@ export default class HomePage extends Component {
       <header>
         <NavBar tabs={this.tabs} selected={this.state.selectedTab} onSelect={this.changeTab}/>
       </header>
-      <ArtPresenter xmlString={this.state.currentImage} text={this.state.currentText}/>
+      <ArtPresenter xmlString={this.state.currentImage}
+                    text={this.state.currentText}
+                    audioFilePath={this.state.currentAudio}/>
     </main>;
   }
 }
