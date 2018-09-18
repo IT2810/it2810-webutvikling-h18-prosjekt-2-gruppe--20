@@ -66,6 +66,18 @@ For å holde koden enklest mulig, forsøker vi å minimere antall komponenter so
 
 I dette prosjektet er det strengt talt kun komponenten `pages/HomePage.js` som trenger tilstand. Da denne har kontroll på hvilke faner og kategorier som er valgt, samt hva data som blir presentert.
 
+## Strukturering av arbeid
+
+Ettersom prosjektet ikke er særlig omfattende og gruppen kun består av 3 personer ser vi det som tilstrekkelig å pushe og pulle rett mot master fremfor å bruke branches og sette opp pull requests. For å konkretisere arbeidsoppgavene bruker vi Github sin innebygde funksjonalitet for issues og muligheten for å koble commits mot issues. For å strukturere issuene på en god måte på et Kanban Board bruker vi Github Projects.
+
+### Timeregistrering
+For å holde oversikt over tidsforbruk for gruppemedlemmene på de ulike issuene bruker vi [Toggl](https://toggl.com/). Dette er en enkel applikasjon hvor gruppens medlemmer starter en timer og gir arbeidsøkten et navn når de begynner å jobbe og stopper timeren når de er ferdige. Videre kan man hente ut flere ulike rapporter for hver enkeltes og gruppas helhetlige tidsforbruk.
+
+#### Tidsforbruk per gruppemedlem:
+* Fredrik: XXXX
+* Ingrid: XXXX
+* Sigurd: XXXX
+
 ## Referanser
 
 ### Img links
