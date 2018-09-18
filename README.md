@@ -1,6 +1,30 @@
 Prosjekt 2 - Kunstgenerator
 ===
 
+## Hente innhold fra server
+
+Innhold skulle hentes fra serveren ved hjelp av AJAX. Siden de fleste nettlesere nå støtter `fetch`-apiet og resten kan bruke en polyfill, tok vi heller i bruk `fetch()` istedenfor å skulle hente inn tredjepartsbiblioteker. Se `utils/api/` for eksempler på bruk.
+
+## Caching i nettleser
+
+Statiske tekst filer, som SVG og JSON, skal etter første HTTP forespørsel bli lagret lokalt i nettleseren.
+
+Vi såg for oss to alternativer for å løse dette
+
+1. In-memory caching - Altså lagre innholdet i en global variabel
+2. LocalStorage - Persistent lagre innholdet i nettlserens localStorage
+
+Begge alternativene er tilstrekkelige nok for oppgavene, men begge var omtrentlig like enkle å implementere. Derfor tok vi det ekstra steget med å lagre innholdet i localStorage, slik at innholdet ville være lagret lokalt i nettleseren så fremt ingen manuelt tømte cachen.
+
+Vi bruker modulene `utils/api/imageApi.js` og `utils/api/textApi.js` som mellomvare for serveren, cachen og brukeren.
+
+Modulene bruker følgende brukerflyt, for å håndtere caching:
+
+1. Sjekk om innholdet allerede er cachet, og returner så innholdet der ifra.
+2. Forsøk å hent filen fra serveren
+3. Om den fant noe, lagre dette i cachen
+4. Returner resultatet
+
 ## Komponentstruktur
 
 Kildekoden til prosjektet er strukturert slik at rotmappene definerer _"kategorien"_ til en JSX- eller ES6-modul. Dvs. en fil kan være en av følgende kategorier
