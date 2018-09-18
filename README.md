@@ -1,6 +1,18 @@
 Prosjekt 2 - Kunstgenerator
 ===
 
+## CSS og stillegging
+
+### Responsivt design
+
+Designet ble fra starten av designet til å skulle "flyte" hele veien ned til mobilvisning, med minimal bruk av media-queries. Dette ble hovedsakelig løst ved hjelp av flexbox, og litt triksing med `width`, `max-width` og `margin` i CSS.
+
+Media-queries ble hovedsakelig brukt for å styre `font-size` til nettsiden i roten (altså i body elementet). Dette kunne vi da videre nyttiggjøre oss av gjennom `em` og `rem` enhetene (https://www.w3schools.com/cssref/css_units.asp).
+
+### Block Element Modifier (BEM)
+
+Er en metodikk for å navngi css-klasser, med hensikt til å minimere uintensjonell nøsting og overstyring av css properties. Mer om dette ligger på hjemmesiden deres http://getbem.com/. Konvensjonen er litt stygg, men egner seg ganske bra til komponentbaserte strukturer. Vi bruker denne konvensjonender det er hensiktsmessig.
+
 ## Hente innhold fra server
 
 Innhold skulle hentes fra serveren ved hjelp av AJAX. Siden de fleste nettlesere nå støtter `fetch`-apiet og resten kan bruke en polyfill, tok vi heller i bruk `fetch()` istedenfor å skulle hente inn tredjepartsbiblioteker. Se `utils/api/` for eksempler på bruk.
