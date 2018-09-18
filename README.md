@@ -73,11 +73,6 @@ Ettersom prosjektet ikke er særlig omfattende og gruppen kun består av 3 perso
 ### Timeregistrering
 For å holde oversikt over tidsforbruk for gruppemedlemmene på de ulike issuene bruker vi [Toggl](https://toggl.com/). Dette er en enkel applikasjon hvor gruppens medlemmer starter en timer og gir arbeidsøkten et navn når de begynner å jobbe og stopper timeren når de er ferdige. Videre kan man hente ut flere ulike rapporter for hver enkeltes og gruppas helhetlige tidsforbruk.
 
-#### Tidsforbruk per gruppemedlem:
-* Fredrik: XXXX
-* Ingrid: XXXX
-* Sigurd: XXXX
-
 ## Referanser
 
 ### Img links
