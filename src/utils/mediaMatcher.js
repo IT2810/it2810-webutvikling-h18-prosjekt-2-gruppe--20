@@ -21,7 +21,7 @@ export function chosenAlternativesToNumber(tab, cat) {
 export function getFileNames(tab, imgCat, audCat, textCat) {
   const imgNumber = chosenAlternativesToNumber(tab, imgCat);
   const audNumber = chosenAlternativesToNumber(tab, audCat);
-  const textNumber = chosenAlternativesToNumber(tab, textCat);
+  const textNumber = chosenAlternativesToNumber(tab, textCat) - 1;
   const fileNames = {
     img: `img${imgNumber}.svg`,
     aud: `aud${audNumber}.mp3`,
