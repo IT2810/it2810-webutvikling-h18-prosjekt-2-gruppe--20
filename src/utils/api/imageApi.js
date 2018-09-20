@@ -3,7 +3,7 @@ import { getFromCache, flushToCache, cacheContainsKey } from './cacheApi';
 const createKey = filename => `img_${filename}`;
 
 async function fetchImage(filename) {
-  return fetch(`/db/${filename}`).then(res => res.text());
+  return fetch(`/db/img/${filename}`).then(res => res.text());
 }
 
 /**
