@@ -15,15 +15,17 @@ export function chosenAlternativesToNumber(tab, cat) {
 }
 
 /**
- * @param {number, number} tabNumber, categoryNumber
+ * @param {number, number, number, number} tabNumber, imageCatategory, audioCategory, textCategory
  * @return {object}
  * */
-export function getFileNames(tab, cat) {
-  const number = chosenAlternativesToNumber(tab, cat);
+export function getFileNames(tab, imgCat, audCat, textCat) {
+  const imgNumber = chosenAlternativesToNumber(tab, imgCat);
+  const audNumber = chosenAlternativesToNumber(tab, audCat);
+  const textNumber = chosenAlternativesToNumber(tab, textCat);
   const fileNames = {
-    img: `img${number}.svg`,
-    aud: `aud${number}.mp3`,
-    txt: number - 1,
+    img: `img${imgNumber}.svg`,
+    aud: `aud${audNumber}.mp3`,
+    txt: textNumber - 1,
   };
   return fileNames;
 }
