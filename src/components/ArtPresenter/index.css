@@ -28,6 +28,16 @@
 
   max-width: 40em;
 
+  overflow: hidden;
+
+  width: 100%;
+}
+
+.artpresenter__image svg {
+  height: auto;
+
+  max-height: 15em;
+
   width: 100%;
 }
 
