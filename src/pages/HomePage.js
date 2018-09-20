@@ -20,7 +20,7 @@ const categories = {
   {
     id: '3',
     label: 'Option 3',
-  }
+  },
   ],
   audio: [{
     id: '1',
@@ -90,16 +90,12 @@ export default class HomePage extends Component {
     this.setState({ selectedTab: newTab });
   };
 
-  changeRadio = (field) => {
-    
-    return (newRadio) => {
-      const state = {};
-      state[field] = newRadio;
+  changeRadio = field => (newRadio) => {
+    const state = {};
+    state[field] = newRadio;
 
-      this.setState(state);
-    }
+    this.setState(state);
   };
-
 
   render() {
     return <main>
@@ -109,15 +105,18 @@ export default class HomePage extends Component {
       <ArtPresenter xmlString={this.state.currentImage}
                     text={this.state.currentText}
                     audioFilePath={this.state.currentAudio}/>
-      <SelectForm 
-        radios={categories.audio} catagoryName="Lyd"
-        selected={this.state.selectedSoundCategory} onChange={this.changeRadio('selectedSoundCategory')} />
-      <SelectForm
-        radios={categories.img} catagoryName="Bilde"
-        selected={this.state.selectedImgCategory} onChange={this.changeRadio('selectedImgCategory')} />
-      <SelectForm 
-        radios={categories.text} catagoryName="Tekst"
-        selected={this.state.selectedTextCategory} onChange={this.changeRadio('selectedTextCategory')}/>
-    </main>
-  };
+      <SelectForm radios={categories.audio}
+                  catagoryName="Lyd"
+                  selected={this.state.selectedSoundCategory}
+                  onChange={this.changeRadio('selectedSoundCategory')}/>
+      <SelectForm radios={categories.img}
+                  catagoryName="Bilde"
+                  selected={this.state.selectedImgCategory}
+                  onChange={this.changeRadio('selectedImgCategory')}/>
+      <SelectForm radios={categories.text}
+                  catagoryName="Tekst"
+                  selected={this.state.selectedTextCategory}
+                  onChange={this.changeRadio('selectedTextCategory')}/>
+    </main>;
+  }
 }
