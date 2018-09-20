@@ -1,6 +1,16 @@
 Prosjekt 2 - Kunstgenerator
 ===
 
+## Produksjonssetting
+
+Bruk scriptet `./buildAndTransfer.sh` til å bygge `build` og overføre filane til hjemmemappa på serveren. Deretter ssh inn til serveren og kjør `sudo mv build/* /var/www/html/prosjekt2/`, som flytter filene til riktig plass.
+
+### Fikse HTTP 404 på GET til /db/*
+
+Feil fordi prosjektet ditt som ligger i undermappen `prosjekt2` forsøker å aksessere noe som ligger i rotmappen til serveren `/var/www/html`. 
+
+Gå til `/etc/apache2/apache2.conf` og legg inn linjen `Alias /db /var/www/db/html/prosjekt2/db`. Restart så apache2 ved å kjøre `sudo service apache2 restart`.
+
 ## CSS og stillegging
 
 ### Responsivt design
