@@ -1,0 +1,36 @@
+
+.selectedform {
+    display: inline-grid;
+
+    background: rgba(0,0,0,0.1);
+    border: groove;
+
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+.selectedform__title {
+    text-align: center;
+    margin: 0.2em;
+    font-size: larger;
+    border-bottom: 2px groove;
+    font-weight: bold;
+
+}
+
+.selectedform__label {
+    cursor: pointer;
+    margin: 0.2em;
+    padding: 0.3em;
+    position: relative;
+    text-align: right;
+}
+
+input[type=radio] {
+    margin: 0 10px;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+
+
