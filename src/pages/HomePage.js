@@ -95,7 +95,6 @@ export default class HomePage extends Component {
     const tabHasChanged = prevState.selectedTab !== this.state.selectedTab;
 
     if (!imageHasChanged && !audioHasChanged && !textHasChanged && !tabHasChanged) {
-      console.info('Old and new state are equal. Skipping...');
       return;
     }
 
@@ -112,14 +111,13 @@ export default class HomePage extends Component {
 
     const currentAudio = getAudioUrl(aud);
 
-    Promise.all([
-      fetchTextByCache(txt),
-      fetchImageByCache(img),
-    ]).then(([currentText, currentImage]) => this.setState({
-      currentImage,
-      currentText,
-      currentAudio,
-    }));
+    Promise
+      .all([fetchTextByCache(txt), fetchImageByCache(img)])
+      .then(([currentText, currentImage]) => this.setState({
+        currentImage,
+        currentText,
+        currentAudio,
+      }));
   };
 
   changeTab = (newTab) => {
