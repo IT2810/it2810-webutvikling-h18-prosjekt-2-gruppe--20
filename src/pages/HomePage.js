@@ -105,7 +105,9 @@ export default class HomePage extends Component {
   fetchFiles = () => {
     const { img, txt, aud } = getFileNames(
       tabs.indexOf(this.state.selectedTab),
-      0,
+      categories.img.indexOf(this.state.selectedImgCategory),
+      categories.audio.indexOf(this.state.selectedSoundCategory),
+      categories.text.indexOf(this.state.selectedTextCategory),
     );
 
     const currentAudio = getAudioUrl(aud);
