@@ -9,59 +9,72 @@ import getAudioUrl from '../utils/api/audioApi';
 import SelectForm from '../components/Selectform';
 
 const categories = {
-  img: [{
-    id: '1',
-    label: 'Option 1',
-  },
-  {
-    id: '2',
-    label: 'Option 2',
-  },
-  {
-    id: '3',
-    label: 'Option 3',
-  },
+  img: [
+    {
+      id: '1',
+      label: 'Silhouette',
+    },
+    {
+      id: '2',
+      label: 'Drawing',
+    },
+    {
+      id: '3',
+      label: 'Colored',
+    },
   ],
-  audio: [{
-    id: '1',
-    label: 'Option 1',
-  },
-  {
-    id: '2',
-    label: 'Option 2',
-  },
-  {
-    id: '3',
-    label: 'Option 3',
-  }],
-  text: [{
-    id: '1',
-    label: 'Option 1',
-  },
-  {
-    id: '2',
-    label: 'Option 2',
-  },
-  {
-    id: '3',
-    label: 'Option 3',
-  }],
+  audio: [
+    {
+      id: '1',
+      label: 'Kort',
+    },
+    {
+      id: '2',
+      label: 'Medium',
+    },
+    {
+      id: '3',
+      label: 'Lang',
+    },
+  ],
+  text: [
+    {
+      id: '1',
+      label: 'Limeric',
+    },
+    {
+      id: '2',
+      label: 'Haiku',
+    },
+    {
+      id: '3',
+      label: 'Didactic Cinquain',
+    },
+  ],
 };
 
-export default class HomePage extends Component {
-  tabs = [
-    {
-      id: 'komedie',
-      label: 'Komedie',
-    },
-    {
-      id: 'drama',
-      label: 'Drama',
-    },
-  ];
+const tabs = [
+  {
+    id: 'tab1',
+    label: 'Fane 1',
+  },
+  {
+    id: 'tab2',
+    label: 'Fane 2',
+  },
+  {
+    id: 'tab3',
+    label: 'Fane 3',
+  },
+  {
+    id: 'tab4',
+    label: 'Fane 4',
+  },
+];
 
+export default class HomePage extends Component {
   state = {
-    selectedTab: null,
+    selectedTab: tabs[0],
     categories: [],
     currentImage: null,
     currentText: null,
@@ -72,7 +85,28 @@ export default class HomePage extends Component {
   };
 
   componentDidMount() {
-    const { img, txt, aud } = getFileNames(0, 2);
+    this.fetchFiles();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const imageHasChanged = prevState.selectedImgCategory !== this.state.selectedImgCategory;
+    const audioHasChanged = prevState.selectedSoundCategory !== this.state.selectedSoundCategory;
+    const textHasChanged = prevState.selectedTextCategory !== this.state.selectedTextCategory;
+    const tabHasChanged = prevState.selectedTab !== this.state.selectedTab;
+
+    if (!imageHasChanged && !audioHasChanged && !textHasChanged && !tabHasChanged) {
+      console.info('Old and new state are equal. Skipping...');
+      return;
+    }
+
+    this.fetchFiles();
+  }
+
+  fetchFiles = () => {
+    const { img, txt, aud } = getFileNames(
+      tabs.indexOf(this.state.selectedTab),
+      0,
+    );
 
     const currentAudio = getAudioUrl(aud);
 
@@ -84,7 +118,7 @@ export default class HomePage extends Component {
       currentText,
       currentAudio,
     }));
-  }
+  };
 
   changeTab = (newTab) => {
     this.setState({ selectedTab: newTab });
@@ -100,23 +134,25 @@ export default class HomePage extends Component {
   render() {
     return <main>
       <header>
-        <NavBar tabs={this.tabs} selected={this.state.selectedTab} onSelect={this.changeTab}/>
+        <NavBar tabs={tabs} selected={this.state.selectedTab} onSelect={this.changeTab}/>
       </header>
+      <div>
+        <SelectForm radios={categories.audio}
+                    catagoryName="Lyd"
+                    selected={this.state.selectedSoundCategory}
+                    onChange={this.changeRadio('selectedSoundCategory')}/>
+        <SelectForm radios={categories.img}
+                    catagoryName="Bilde"
+                    selected={this.state.selectedImgCategory}
+                    onChange={this.changeRadio('selectedImgCategory')}/>
+        <SelectForm radios={categories.text}
+                    catagoryName="Tekst"
+                    selected={this.state.selectedTextCategory}
+                    onChange={this.changeRadio('selectedTextCategory')}/>
+      </div>
       <ArtPresenter xmlString={this.state.currentImage}
                     text={this.state.currentText}
                     audioFilePath={this.state.currentAudio}/>
-      <SelectForm radios={categories.audio}
-                  catagoryName="Lyd"
-                  selected={this.state.selectedSoundCategory}
-                  onChange={this.changeRadio('selectedSoundCategory')}/>
-      <SelectForm radios={categories.img}
-                  catagoryName="Bilde"
-                  selected={this.state.selectedImgCategory}
-                  onChange={this.changeRadio('selectedImgCategory')}/>
-      <SelectForm radios={categories.text}
-                  catagoryName="Tekst"
-                  selected={this.state.selectedTextCategory}
-                  onChange={this.changeRadio('selectedTextCategory')}/>
     </main>;
   }
 }
