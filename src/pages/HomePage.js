@@ -56,19 +56,19 @@ const categories = {
 const tabs = [
   {
     id: 'tab1',
-    label: 'Fane 1',
+    label: 'Guitar',
   },
   {
     id: 'tab2',
-    label: 'Fane 2',
+    label: 'Scuba Diving',
   },
   {
     id: 'tab3',
-    label: 'Fane 3',
+    label: 'Elephant',
   },
   {
     id: 'tab4',
-    label: 'Fane 4',
+    label: 'Tanks',
   },
 ];
 
