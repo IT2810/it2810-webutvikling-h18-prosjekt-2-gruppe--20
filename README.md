@@ -13,6 +13,17 @@ Media-queries ble hovedsakelig brukt for å styre `font-size` til nettsiden i ro
 
 Er en metodikk for å navngi css-klasser, med hensikt til å minimere uintensjonell nøsting og overstyring av css properties. Mer om dette ligger på hjemmesiden deres http://getbem.com/. Konvensjonen er litt stygg, men egner seg ganske bra til komponentbaserte strukturer. Vi bruker denne konvensjonender det er hensiktsmessig.
 
+## Filstruktur på server
+
+|       | Tab 1 | Tab 2 | Tab 3 | Tab 4 |
+|-------|-------|-------|-------|-------|
+| Kat 1 | 1     | 2     | 3     | 4     |
+| Kat 2 | 5     | 6     | 7     | 8     |
+| Kat 3 | 9     | 10    | 11    | 12    |
+
+Filene er navngitt slik at man enkelt ut fra valgt kategori og tab skal kunne hente ut rett fil. For eksempel vil tab 3 med 1 som valgt musikk-kategori og 3 som bildekategori samsvare med filene ```aud3.mp3``` og ```img7.svg```. Teksfilene følger samme system men er lagret som én JSON-fil der det er en liste av tekstobjekter. Ettersom listen er nullindeksert og tabellen og filnavnene går fra 1 og oppover må man hente tekst-objektet som har 1 lavere indeks enn det tallet fra tabellen. For eksempel vil man ved valgt tab 1 og kat 3 hente objektet på plass 8 i JSON-filen.
+
+Denne løsningen er ikke skalerbar om man skal utvide antall tabs, men skalerer greit om man skal utvide med fler kategorier.
 ## Hente innhold fra server
 
 Innhold skulle hentes fra serveren ved hjelp av AJAX. Siden de fleste nettlesere nå støtter `fetch`-apiet og resten kan bruke en polyfill, tok vi heller i bruk `fetch()` istedenfor å skulle hente inn tredjepartsbiblioteker. Se `utils/api/` for eksempler på bruk.
@@ -124,8 +135,3 @@ For å holde oversikt over tidsforbruk for gruppemedlemmene på de ulike issuene
 	* https://freesound.org/search/?q=guitar+string
 	* https://freesound.org/people/InspectorJ/sounds/439554/
 	* https://freesound.org/people/FrankyBoomer/sounds/251223/
-
-
-
-
-
