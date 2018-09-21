@@ -65,14 +65,14 @@ const tabs = [
 
 export default class HomePage extends Component {
   state = {
-    selectedTab: tabs[0],
+    selectedTab: tabs[Math.floor(Math.random() * 4)],
     categories: [],
     currentImage: null,
     currentText: null,
     currentAudio: null,
-    selectedSoundCategory: categories.audio[0],
-    selectedImgCategory: categories.img[0],
-    selectedTextCategory: categories.text[0],
+    selectedSoundCategory: categories.audio[Math.floor(Math.random() * 3)],
+    selectedImgCategory: categories.img[Math.floor(Math.random() * 3)],
+    selectedTextCategory: categories.text[Math.floor(Math.random() * 3)],
   };
 
   componentDidMount() {
