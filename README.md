@@ -19,6 +19,15 @@ Designet ble fra starten av designet til å skulle "flyte" hele veien ned til mo
 
 Media-queries ble hovedsakelig brukt for å styre `font-size` til nettsiden i roten (altså i body elementet). Dette kunne vi da videre nyttiggjøre oss av gjennom `em` og `rem` enhetene (https://www.w3schools.com/cssref/css_units.asp).
 
+### Testing
+
+Cross browser testing ble gjort i Chrome, Safari og Safari på mobil. 
+1. Testing av mulige kombinasjoner av kategorier viser at funksjonaliteten fungerer som den skal i samtlige nettlesere.
+2. Full størrelse på skjem i Chrome og Safari viser lik layout. Se `docs/chrome-full.png`og `docs/safari-full.png`.
+3. Testing av redusert bredde viser at layouten er noe ulik i Chrome og Safari. Se `docs/chrome-small.png` og                `docs/safari-small.png` for sammenligning. Dette er på grunn av at nettleserne gir forskjellige versjoner av              lydavspilleren, som gjør at de skifter layout ved ulike breddeformat.
+4. Testing av horisontal og vertikal orientering på mobil viser at løsningen tilpasser seg størrelsen og orienteringen.
+   Se `docs/safari-ios-vertical.jpg` og `docs/safari-ios-vertical-con'd.jpg` for vertikal orientering, og `docs/safari-ios-horizontal.jpg` og `docs/safari-ios-horizontal-con'd.jpg` for horisontal orientering.
+
 ### Block Element Modifier (BEM)
 
 Er en metodikk for å navngi css-klasser, med hensikt til å minimere uintensjonell nøsting og overstyring av css properties. Mer om dette ligger på hjemmesiden deres http://getbem.com/. Konvensjonen er litt stygg, men egner seg ganske bra til komponentbaserte strukturer. Vi bruker denne konvensjonender det er hensiktsmessig.
