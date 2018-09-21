@@ -48,6 +48,8 @@
   background-color: #ffffff;
   box-sizing: border-box;
 
+  white-space: pre;
+
   flex: 1;
   flex-basis: 15em;
 
