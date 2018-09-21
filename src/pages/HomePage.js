@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import NavBar from '../components/Navbar';
+import NavBar from '../components/NavBar';
 import ArtPresenter from '../components/ArtPresenter';
 
 import { getFileNames } from '../utils/mediaMatcher';
 import fetchImageByCache from '../utils/api/imageApi';
 import fetchTextByCache from '../utils/api/textApi';
 import getAudioUrl from '../utils/api/audioApi';
-import SelectForm from '../components/Selectform';
+import RadioCategories from '../components/RadioCategories';
 
 const categories = {
   img: [
@@ -128,15 +128,15 @@ export default class HomePage extends Component {
         <NavBar tabs={tabs} selected={this.state.selectedTab} onSelect={this.changeTab}/>
       </header>
       <div className="centered-horizontal">
-        <SelectForm categories={categories.audio}
+        <RadioCategories categories={categories.audio}
                     categoryName="Lyd"
                     selected={this.state.selectedSoundCategory}
                     onChange={this.changeCategory('selectedSoundCategory')}/>
-        <SelectForm categories={categories.img}
+        <RadioCategories categories={categories.img}
                     categoryName="Bilde"
                     selected={this.state.selectedImgCategory}
                     onChange={this.changeCategory('selectedImgCategory')}/>
-        <SelectForm categories={categories.text}
+        <RadioCategories categories={categories.text}
                     categoryName="Tekst"
                     selected={this.state.selectedTextCategory}
                     onChange={this.changeCategory('selectedTextCategory')}/>

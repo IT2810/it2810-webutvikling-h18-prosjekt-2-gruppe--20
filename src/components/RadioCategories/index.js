@@ -6,7 +6,7 @@ const isSelected = (category, selectedCategory) => (
   selectedCategory ? category === selectedCategory : false
 );
 
-const SelectForm = ({
+const RadioCategories = ({
   categories,
   categoryName,
   selected,
@@ -20,9 +20,9 @@ const SelectForm = ({
     onChange(category);
   };
 
-  return <div className='selectedform'>
-            <strong className='selectedform__title'>{categoryName}</strong>
-            {categories.map(category => <label className='selectedform__label'
+  return <div className='radiocategories'>
+            <strong className='radiocategories__title'>{categoryName}</strong>
+            {categories.map(category => <label className='radiocategories__label'
                                         key={category.label}>{category.label}
                                             <input type='radio'
                                                     value={category.label}
@@ -37,11 +37,11 @@ const formShape = PropTypes.shape({
   label: PropTypes.string.isRequired,
 });
 
-SelectForm.propTypes = {
+RadioCategories.propTypes = {
   categories: PropTypes.arrayOf(formShape),
   categoryName: PropTypes.string,
   selected: formShape,
   onChange: PropTypes.func,
 };
 
-export default SelectForm;
+export default RadioCategories;
