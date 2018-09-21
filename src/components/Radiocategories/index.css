@@ -1,5 +1,5 @@
 
-.selectedform {
+.radiocategories {
     display: inline-grid;
 
     background-color: #dddddd;
@@ -9,15 +9,14 @@
     padding: 0.5em;
 }
 
-.selectedform__title {
+.radiocategories__title {
     text-align: center;
     margin: 0.2em;
     font-size: larger;
     border-bottom: 2px groove;
-
 }
 
-.selectedform__label {
+.radiocategories__label {
     cursor: pointer;
     margin: 0.2em;
     padding: 0.3em;
