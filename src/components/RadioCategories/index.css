@@ -1,9 +1,9 @@
 
 .radiocategories {
     display: inline-grid;
+    flex-basis: 9em;
 
-    background-color: #dddddd;
-    border: #aaaaaa solid 1px;
+    background-color: #eeeeee;
 
     margin: 0.5em;
     padding: 0.5em;
@@ -13,7 +13,7 @@
     text-align: center;
     margin: 0.2em;
     font-size: larger;
-    border-bottom: 2px groove;
+    border-bottom: 1px solid #cccccc;
 }
 
 .radiocategories__label {
