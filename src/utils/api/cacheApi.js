@@ -13,7 +13,15 @@
  * @param {string} value
  * */
 export function flushToCache(key, value) {
-  localStorage.setItem(key, value);
+  try {
+    localStorage.setItem(key, value);
+  } catch(e) {
+    // Safari might fail in some cases with error QuotaExceededError.
+    // This is not critical in our case, but will result in
+    // that we fail to cache some data after just one request. Thus we have to fetch it again.
+    // However, this problem is on Apple's side and is not related to the "Private browser issue" in Safari.
+    console.warn(`Could not save ${key} to localStorage. ${e.message}`);
+  }
 }
 
 /**
