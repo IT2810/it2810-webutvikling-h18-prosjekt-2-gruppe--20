@@ -39,7 +39,7 @@ const formShape = PropTypes.shape({
 
 SelectForm.propTypes = {
   categories: PropTypes.arrayOf(formShape),
-  catagoryName: PropTypes.string,
+  categoryName: PropTypes.string,
   selected: formShape,
   onChange: PropTypes.func,
 };

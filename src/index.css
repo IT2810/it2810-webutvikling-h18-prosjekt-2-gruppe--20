@@ -9,6 +9,20 @@ body {
   font-size: 16px;
 }
 
+.centered-horizontal {
+  display: flex;
+  margin: auto;
+  max-width: 50em;
+  width: 100%;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.centered-horizontal-nowrap{
+  flex-wrap: nowrap;
+}
+
 @media screen and (max-width: 50em) {
   body {
     font-size: 14px;
