@@ -2,8 +2,8 @@
 .selectedform {
     display: inline-grid;
 
-    background: rgba(0,0,0,0.1);
-    border: groove;
+    background-color: #dddddd;
+    border: #aaaaaa solid 1px;
 
     margin: 0.5em;
     padding: 0.5em;
@@ -14,7 +14,6 @@
     margin: 0.2em;
     font-size: larger;
     border-bottom: 2px groove;
-    font-weight: bold;
 
 }
 

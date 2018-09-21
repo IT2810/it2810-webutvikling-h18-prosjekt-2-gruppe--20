@@ -11,43 +11,34 @@ import SelectForm from '../components/Selectform';
 const categories = {
   img: [
     {
-      id: '1',
       label: 'Silhouette',
     },
     {
-      id: '2',
       label: 'Drawing',
     },
     {
-      id: '3',
       label: 'Colored',
     },
   ],
   audio: [
     {
-      id: '1',
       label: 'Kort',
     },
     {
-      id: '2',
       label: 'Medium',
     },
     {
-      id: '3',
       label: 'Lang',
     },
   ],
   text: [
     {
-      id: '1',
       label: 'Limeric',
     },
     {
-      id: '2',
       label: 'Haiku',
     },
     {
-      id: '3',
       label: 'Didactic Cinquain',
     },
   ],
@@ -124,9 +115,9 @@ export default class HomePage extends Component {
     this.setState({ selectedTab: newTab });
   };
 
-  changeRadio = field => (newRadio) => {
+  changeCategory = field => (newCategory) => {
     const state = {};
-    state[field] = newRadio;
+    state[field] = newCategory;
 
     this.setState(state);
   };
@@ -137,18 +128,18 @@ export default class HomePage extends Component {
         <NavBar tabs={tabs} selected={this.state.selectedTab} onSelect={this.changeTab}/>
       </header>
       <div>
-        <SelectForm radios={categories.audio}
-                    catagoryName="Lyd"
+        <SelectForm categories={categories.audio}
+                    categoryName="Lyd"
                     selected={this.state.selectedSoundCategory}
-                    onChange={this.changeRadio('selectedSoundCategory')}/>
-        <SelectForm radios={categories.img}
-                    catagoryName="Bilde"
+                    onChange={this.changeCategory('selectedSoundCategory')}/>
+        <SelectForm categories={categories.img}
+                    categoryName="Bilde"
                     selected={this.state.selectedImgCategory}
-                    onChange={this.changeRadio('selectedImgCategory')}/>
-        <SelectForm radios={categories.text}
-                    catagoryName="Tekst"
+                    onChange={this.changeCategory('selectedImgCategory')}/>
+        <SelectForm categories={categories.text}
+                    categoryName="Tekst"
                     selected={this.state.selectedTextCategory}
-                    onChange={this.changeRadio('selectedTextCategory')}/>
+                    onChange={this.changeCategory('selectedTextCategory')}/>
       </div>
       <ArtPresenter xmlString={this.state.currentImage}
                     text={this.state.currentText}
