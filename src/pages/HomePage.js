@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import NavBar from '../components/Navbar';
+import NavBar from '../components/NavBar';
 import ArtPresenter from '../components/ArtPresenter';
 
 import { getFileNames } from '../utils/mediaMatcher';
 import fetchImageByCache from '../utils/api/imageApi';
 import fetchTextByCache from '../utils/api/textApi';
 import getAudioUrl from '../utils/api/audioApi';
-import RadioCategories from '../components/Radiocategories';
+import RadioCategories from '../components/RadioCategories';
 
 const categories = {
   img: [
