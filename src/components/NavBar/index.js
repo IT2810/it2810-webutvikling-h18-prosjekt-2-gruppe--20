@@ -15,13 +15,13 @@ const NavBar = ({ tabs, selected = null, onSelect = () => null }) => {
     onSelect(tab);
   };
 
-  return <div>
+  return <React.Fragment>
     {tabs.map(tab => <Tab
       key={`tab-${tab.id}`}
       id={tab.id}
       isActive={isSelected(tab, selected)}
       onClick={selectHandler(tab)}>{tab.label}</Tab>)}
-  </div>;
+  </React.Fragment>;
 };
 
 const tabShape = PropTypes.shape({

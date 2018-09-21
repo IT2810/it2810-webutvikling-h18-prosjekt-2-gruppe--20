@@ -39,7 +39,7 @@ const categories = {
       label: 'Haiku',
     },
     {
-      label: 'Didactic Cinquain',
+      label: 'Did. Cinquain',
     },
   ],
 };
@@ -124,10 +124,10 @@ export default class HomePage extends Component {
 
   render() {
     return <main>
-      <header>
+      <header className="centered-horizontal centered-horizontal-nowrap">
         <NavBar tabs={tabs} selected={this.state.selectedTab} onSelect={this.changeTab}/>
       </header>
-      <div>
+      <div className="centered-horizontal">
         <RadioCategories categories={categories.audio}
                     categoryName="Lyd"
                     selected={this.state.selectedSoundCategory}
